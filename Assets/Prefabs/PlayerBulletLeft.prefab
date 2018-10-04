@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 70845568451467222}
   - component: {fileID: 50319794004097202}
   - component: {fileID: 114727296264926162}
+  - component: {fileID: 114257009395500886}
   m_Layer: 0
   m_Name: PlayerBulletLeft
   m_TagString: Shots
@@ -97,6 +98,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114257009395500886
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1441745374486778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8190461340f54433aff4eff2d85b516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounds:
+    xMin: -5.25
+    xMax: 5.25
+    yMin: -3.5
+    yMax: 3.5
+  health: 3
 --- !u!114 &114727296264926162
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -110,6 +128,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   movement: 4
+  bounds:
+    xMin: 0
+    xMax: 0
+    yMin: 0
+    yMax: 0
 --- !u!212 &212712644388941476
 SpriteRenderer:
   m_ObjectHideFlags: 1

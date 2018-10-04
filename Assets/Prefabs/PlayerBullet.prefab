@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 70684252290363942}
   - component: {fileID: 50702861371140050}
   - component: {fileID: 114798855730420424}
+  - component: {fileID: 114209100052613398}
   m_Layer: 0
   m_Name: PlayerBullet
   m_TagString: Shots
@@ -38,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1460385274393560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -97,6 +98,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114209100052613398
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1460385274393560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8190461340f54433aff4eff2d85b516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounds:
+    xMin: -5.25
+    xMax: 5.25
+    yMin: -3.5
+    yMax: 3.5
+  health: 3
 --- !u!114 &114798855730420424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -110,6 +128,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   movement: 0
+  bounds:
+    xMin: 0
+    xMax: 0
+    yMin: 0
+    yMax: 0
 --- !u!212 &212357107258029120
 SpriteRenderer:
   m_ObjectHideFlags: 1

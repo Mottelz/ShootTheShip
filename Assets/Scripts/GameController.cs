@@ -30,6 +30,7 @@ public class GameController : MonoBehaviour {
     #endif
         }
         if(Input.GetKey(KeyCode.R)) {
+            GameState.Instance.mode = GameMode.Menu;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
@@ -113,6 +114,7 @@ public class GameController : MonoBehaviour {
     }
 
     void LoadMenu() {
+        GameState.Instance.mode = GameMode.Menu;
         menuText.text = "SHOOT THE SHIP\n Select Game Mode\n 1. Normal Mode\n 2. Bullet Hell";
     }
 }

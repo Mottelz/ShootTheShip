@@ -2,13 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 namespace Mottel {
-[System.Serializable]
-public class Boundry {
-	public float xMin, xMax, yMin, yMax;
-}
-
-
 public class PlayerController : MonoBehaviour {
     public GameObject explosion, cannon, shot, shotLeft, shotRight;
 	public float speed, cooldown, bulletOffset; 

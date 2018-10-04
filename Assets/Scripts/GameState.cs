@@ -4,6 +4,11 @@ using UnityEngine;
 
 namespace Mottel {
     public enum GameMode {Menu, Normal, BulletHell};
+    [System.Serializable]
+    public class Boundry {
+        public float xMin, xMax, yMin, yMax;
+    }
+
     public class GameState : MonoBehaviour {
         public static GameState Instance { get; private set;}
         public GameMode mode;

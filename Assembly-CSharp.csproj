@@ -55,7 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BackgroundScroller.cs" />
      <Compile Include="Assets\Scripts\BossController.cs" />
-     <Compile Include="Assets\Scripts\BulletHellController.cs" />
+     <Compile Include="Assets\Scripts\BulletHell.cs" />
      <Compile Include="Assets\Scripts\CannonController.cs" />
      <Compile Include="Assets\Scripts\DestoryByShot.cs" />
      <Compile Include="Assets\Scripts\DestroyByBoundary.cs" />
