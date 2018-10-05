@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scripts\DestoryByShot.cs" />
      <Compile Include="Assets\Scripts\DestroyByBoundary.cs" />
      <Compile Include="Assets\Scripts\DestroyByLifetime.cs" />
+     <Compile Include="Assets\Scripts\Enums.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\GameState.cs" />
      <Compile Include="Assets\Scripts\MoveByRB2D.cs" />

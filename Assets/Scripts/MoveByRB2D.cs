@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 namespace Mottel {
-	[System.Serializable]
-	public enum MovementType { Up, Down, Centipede, Boss, LeftBullet, RightBullet };
-
-	public class MoveByRB2D : MonoBehaviour {
+    
+	/// <summary>
+    /// Moves all of the non-player objects using physics and RigidBody2D.
+    /// </summary>
+    public class MoveByRB2D : MonoBehaviour {
 		public float speed;
 		public MovementType movement;
 		private Rigidbody2D rb;
 		public Boundry bounds;
-
-		private void Start() {
+        
+		/// <summary>
+        /// Sets the simple velocity, based on the selected MovementType or calls ComplexMovement().
+        /// </summary>
+        private void Start() {
 			rb = GetComponent<Rigidbody2D>();
 			if(movement == MovementType.Down) {
 				rb.velocity = Vector2.down * speed;
@@ -26,7 +30,10 @@ namespace Mottel {
 			}
 		}
 
-		IEnumerator ComplexMovement() {
+        /// <summary>
+        /// Complex movement that requires pauses over time. Decided based on some basic math.
+        /// </summary>
+        IEnumerator ComplexMovement() {
 			if(movement == MovementType.Centipede) {
 				while(true) {
 					//move left

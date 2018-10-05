@@ -2,13 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 namespace Mottel {
-public class DestroyByBoundary : MonoBehaviour{
-    void OnTriggerExit2D(Collider2D other) {
-        if(other.tag == "Shots" && GameState.Instance.mode == GameMode.BulletHell) {
-            return;
-        } else {
-            Destroy(other.gameObject);
+    /// <summary>
+    /// Attch to Boundary, destorys anything that leaves.
+    /// </summary>
+    public class DestroyByBoundary : MonoBehaviour{
+        /// <summary>
+        /// Will destory everything besides shots while in bullet mode.
+        /// </summary>
+        void OnTriggerExit2D(Collider2D other) {
+            if(other.tag == "Shots" && GameState.Instance.mode == GameMode.BulletHell) {
+                return;
+            } else {
+                Destroy(other.gameObject);
+            }
         }
     }
-}
 }

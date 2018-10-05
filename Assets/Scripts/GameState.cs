@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Mottel {
-    public enum GameMode {Menu, Normal, BulletHell};
-    [System.Serializable]
-    public class Boundry {
-        public float xMin, xMax, yMin, yMax;
-    }
-
+    /// <summary>
+    /// Preserves high score and game state. This is a static class.
+    /// </summary>
     public class GameState : MonoBehaviour {
         public static GameState Instance { get; private set;}
         public GameMode mode;

@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Mottel {
+    
+    /// <summary>
+    /// Attached to the bullets/lasers so bullet hell mode can be activated.
+    /// </summary>
     public class BulletHell : MonoBehaviour {
         public Boundry bounds;
         public int health;
-
+        /// <summary>
+        /// If you leave the boundary multiply that coordinate by -1. If BulletHell mode is not set in GameState, the boundary will destory the bullet and this script will never take effect. 
+        /// </summary>
         private void OnTriggerExit2D(Collider2D other) {
             if (other.tag == "Boundary"){
 				health--;

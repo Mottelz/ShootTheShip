@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114575120854366518}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Enemies
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -296,11 +296,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship: {fileID: 1116678004423178}
-  barrel: {fileID: 1958669913042700}
-  cooldown: 2
   shot: {fileID: 1402546938457476, guid: 76c2ed327da274defbd137ce80d807d6, type: 2}
+  barrel: {fileID: 1958669913042700}
   explosion: {fileID: 1636310746014300, guid: 32cadd8699acc489b826d6333d43f0d1, type: 2}
-  health: 2
+  defaultHealth: 3
+  cooldown: 2
 --- !u!114 &114259883814487748
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -313,11 +313,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship: {fileID: 1116678004423178}
-  barrel: {fileID: 1242488660707510}
-  cooldown: 2
   shot: {fileID: 1402546938457476, guid: 76c2ed327da274defbd137ce80d807d6, type: 2}
+  barrel: {fileID: 1242488660707510}
   explosion: {fileID: 1636310746014300, guid: 32cadd8699acc489b826d6333d43f0d1, type: 2}
-  health: 2
+  defaultHealth: 3
+  cooldown: 2
 --- !u!114 &114347890479416060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -329,8 +329,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0efd824431dc345a9a5960c67b02279b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 15
-  timeVulnerable: 5
+  health: 20
+  timeVulnerable: 3
   explosion: {fileID: 1483970850261332, guid: b702ba465627b4c4abb4848989ecd3f9, type: 2}
   cannonLeft: {fileID: 1498898073401412}
   cannonRight: {fileID: 1830737135596454}
