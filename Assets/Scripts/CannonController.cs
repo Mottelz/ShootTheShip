@@ -11,11 +11,14 @@ namespace Mottel {
         public int defaultHealth, cooldown;
         private int health;
         private float nextShot;
+        private SpriteRenderer sr;
+
 
         /// <summary>
         /// On start, set health. 
         /// </summary>
         private void Start() {
+            sr = GetComponent<SpriteRenderer>();
             health = defaultHealth;
         }
         
@@ -41,20 +44,36 @@ namespace Mottel {
 
         /// <summary>
         /// When hit, cause instantiate exposion, reduce health, and if helath is now zero tell the BossController. 
-       /// </summary>
+        /// </summary>
         void hit() {
             Instantiate(explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z - 2), transform.rotation);
             health--;
             if(health < 1) {
+                StartCoroutine(smoothTrans(0f, 0.5f));
                 ship.GetComponent<BossController>().cannonHit();
             }
         }
 
-       /// <summary>
-        // Sets health back to full, called by the BossController. 
-       /// </summary>
+        /// <summary>
+        /// Sets health back to full, called by the BossController. 
+        /// </summary>
         public void reloadHealth() {
+            StartCoroutine(smoothTrans(1f, 0.5f));
             health = defaultHealth;
+        }
+
+        /// <summary>
+        /// A smooth transition for opacity using lerp and fixedupdate.
+        /// </summary>
+        IEnumerator smoothTrans(float end, float duration) {
+            float elapsed = 0f;
+            float start = sr.color.a;
+            while (sr.color.a != end) {
+                float newVal = Mathf.Lerp(start, end, (elapsed/duration));
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, newVal);
+                elapsed += Time.fixedDeltaTime;
+                yield return new WaitForFixedUpdate();
+            }
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Mottel {
         public float timeVulnerable;
         public GameObject explosion, cannonLeft, cannonRight;
         private Text healthText;
+        private SpriteRenderer sr;
         
         /// <Summary>
         /// Set health, grab text and set it. 
@@ -22,6 +23,7 @@ namespace Mottel {
             currentHealth = health;
             healthText = GameObject.Find("Boss Health").GetComponent<Text>();
             healthText.text = "Boss: " + (currentHealth / 15f * 100f).ToString("F0") + "%";
+            sr = GetComponent<SpriteRenderer>();
         }
 
         /// <Summary>
@@ -63,10 +65,26 @@ namespace Mottel {
         /// </summary>
         IEnumerator HitMe() {
             vulerable = true;
+            StartCoroutine(smoothTrans(1f, 0.5f));
             yield return new WaitForSeconds(timeVulnerable);
             vulerable = false;
+            StartCoroutine(smoothTrans(0.5f, 0.25f));
             cannonLeft.GetComponent<CannonController>().reloadHealth();
             cannonRight.GetComponent<CannonController>().reloadHealth();
+        }
+
+        /// <summary>
+        /// A smooth transition for opacity using lerp and fixedupdate.
+        /// </summary>
+        IEnumerator smoothTrans(float end, float duration) {
+            float elapsed = 0f;
+            float start = sr.color.a;
+            while (sr.color.a != end) {
+                float newVal = Mathf.Lerp(start, end, (elapsed / duration));
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, newVal);
+                elapsed += Time.fixedDeltaTime;
+                yield return new WaitForFixedUpdate();
+            }
         }
     }
 }

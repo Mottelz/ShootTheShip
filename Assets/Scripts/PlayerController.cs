@@ -14,7 +14,7 @@ namespace Mottel {
         public int health, maxHealth;
         private float nextShot;
         public Text healthText;
-
+        
         /// <summary>
         /// On launch, set the Player's Health HUD.
         /// </summary>
