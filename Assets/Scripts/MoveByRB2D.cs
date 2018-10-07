@@ -30,14 +30,14 @@ namespace Mottel {
 			} else if (movement == MovementType.Boss) {
                 StartCoroutine(ComplexMovement());
 			} else if (movement == MovementType.Centipede) { 
-				rb.velocity = Vector2.down;
+				rb.velocity = Vector2.down*speed;
 			}
 		}
 
 		private void FixedUpdate() {
 			float eslapsed = Time.fixedTime - startTime;
             if (movement == MovementType.Centipede) {
-				rb.AddForce(Vector2.left * Mathf.Cos(eslapsed/0.85f) * speed, ForceMode2D.Force);
+				rb.AddForce(Vector2.left * Mathf.Cos(eslapsed/0.9f) * speed, ForceMode2D.Force);
             }
 		}
 
