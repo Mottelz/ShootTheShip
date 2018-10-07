@@ -331,7 +331,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   timeVulnerable: 3
-  explosion: {fileID: 1483970850261332, guid: b702ba465627b4c4abb4848989ecd3f9, type: 2}
+  explosion: {fileID: 1274440307698928, guid: b957c6f81cb674d93a8ec6acd08d9960, type: 2}
+  deathExpolsion: {fileID: 1502076044111410, guid: db1a641f4aa4c4aebbca75c494593d9e,
+    type: 2}
   cannonLeft: {fileID: 1498898073401412}
   cannonRight: {fileID: 1830737135596454}
 --- !u!114 &114575120854366518

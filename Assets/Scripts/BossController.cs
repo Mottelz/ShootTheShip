@@ -12,7 +12,7 @@ namespace Mottel {
         private bool vulerable;
         public int health;
         public float timeVulnerable;
-        public GameObject explosion, cannonLeft, cannonRight;
+        public GameObject explosion, deathExpolsion, cannonLeft, cannonRight;
         private Text healthText;
         private SpriteRenderer sr;
         
@@ -41,10 +41,10 @@ namespace Mottel {
         /// </Summary>
         void hit() {
             currentHealth--;
-            Mathf.Clamp(currentHealth, 0, health);
-            healthText.text = "Boss: " + (currentHealth / 15f * 100f).ToString("F0") + "%";
+            healthText.text = "Boss: " + Mathf.Clamp((currentHealth / 15f * 100f), 0f, 100f).ToString("F0") + "%";
+            Instantiate(explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z - 2), transform.rotation);
             if (currentHealth < 1) {
-                Instantiate(explosion, transform.position, transform.rotation);
+                Instantiate(deathExpolsion, transform.position, transform.rotation);
                 GetComponent<NotifyOfDeath>().DeathKnell();
                 Destroy(gameObject);
             }
