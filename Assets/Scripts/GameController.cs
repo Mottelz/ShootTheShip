@@ -10,7 +10,7 @@ namespace Mottel {
     /// </summary>
     public class GameController : MonoBehaviour {
         public Text scoreText, highScoreText, menuText;
-        public GameObject enemy1, enemy2, boss, powerUp;
+        public GameObject enemy1, enemy2, boss, powerUp, player, infiniteBackground, gameBackground;
         public float waveWait, bossWait, spawnWait1, spawnWait2;
         public int wave2Size;
         private int deadEnemy1, deadEnemy2, score, scoreMultiplier;
@@ -60,6 +60,9 @@ namespace Mottel {
         /// Waits 2 seconds then spawns enemies. Currently does 2 waves then the boss.
         /// </summary>
         IEnumerator ActivateEnemies() {
+            Destroy(GameObject.FindGameObjectsWithTag("Background")[0]);
+            Instantiate(gameBackground);
+            Instantiate(player, new Vector3(0f, -3f, 0f), Quaternion.identity);
             yield return new WaitForSeconds(2);
             StartCoroutine(InitWave1());
             yield return new WaitForSeconds(waveWait);
@@ -105,7 +108,7 @@ namespace Mottel {
             score += points * scoreMultiplier;
             scoreText.text = "Score: " + score;
             if (score > GameState.Instance.highScore) {
-                    GameState.Instance.highScore = score;
+                GameState.Instance.highScore = score;
                 highScoreText.text = "High Score: " + GameState.Instance.highScore;
             }
 
@@ -125,7 +128,8 @@ namespace Mottel {
                     }
                     break;
                 case objectType.Boss:
-                        LoadMenu();
+                    Destroy(GameObject.FindGameObjectsWithTag("Player")[0]);
+                    LoadMenu();
                     break;
                 default:
                     break;
@@ -136,9 +140,11 @@ namespace Mottel {
             Instantiate(powerUp, new Vector3(0.0f, 5.5f, 0.0f), transform.rotation);
         }
 
-        void LoadMenu() {
+        public void LoadMenu() {
+            Destroy(GameObject.FindGameObjectsWithTag("Background")[0]);
+            Instantiate(infiniteBackground);
             GameState.Instance.mode = GameMode.Menu;
-            menuText.text = "SHOOT THE SHIP\n Select Game Mode\n 1. Normal Mode\n 2. Bullet Hell";
+            menuText.text = "SHOOT THE SHIP\nselect mode with keys\n1. Normal Mode\n2. Bullet Hell";
         }
     }
 }

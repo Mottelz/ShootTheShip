@@ -156,7 +156,6 @@ MonoBehaviour:
     yMax: 3
   health: 1
   maxHealth: 3
-  healthText: {fileID: 0}
 --- !u!212 &212102967679244480
 SpriteRenderer:
   m_ObjectHideFlags: 1

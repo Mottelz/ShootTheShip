@@ -5,6 +5,7 @@ using UnityEngine;
 namespace Mottel {
 	public class BGController : MonoBehaviour {
 		public float startScrollSpeed, stopAfter, slowDuration;
+        public bool infiniteScroll;
 		private Renderer rend;
 		private float scrollSpeed, slowTime;
 		private bool slowDown;
@@ -25,7 +26,7 @@ namespace Mottel {
         /// Moves background using offset then reduces the speed once slowDown is set to true.
         /// </summary>
         void Update() {
-			if(slowDown) {
+			if(slowDown && !infiniteScroll) {
                 scrollSpeed = Mathf.Lerp(startScrollSpeed, 0f, ((Time.time - slowTime) / slowDuration));
 			}
             Vector2 offset = rend.sharedMaterial.GetTextureOffset("_MainTex");

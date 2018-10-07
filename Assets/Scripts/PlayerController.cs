@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace Mottel {
     /// <summary>
@@ -13,12 +14,13 @@ namespace Mottel {
         public Boundry boundry;
         public int health, maxHealth;
         private float nextShot;
-        public Text healthText;
+        private Text healthText;
         
         /// <summary>
         /// On launch, set the Player's Health HUD.
         /// </summary>
         private void Start() {
+            healthText = GameObject.Find("Player Health").GetComponent<Text>();
             healthText.text = "Health: " + health;
         }
 
@@ -78,6 +80,8 @@ namespace Mottel {
             healthText.text = "Health: " + health;
             Instantiate(explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z -2), transform.rotation);
             if (health < 1) {
+                GameState.Instance.mode = GameMode.Menu;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 Destroy(gameObject);
             }
         }
