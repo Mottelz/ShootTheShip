@@ -9,6 +9,7 @@ TagManager:
   - Shots
   - Powerup
   - Boss Health
+  - Background
   layers:
   - Default
   - TransparentFX

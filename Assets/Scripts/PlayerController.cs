@@ -27,7 +27,7 @@ namespace Mottel {
         /// </summary>
         private void Update () {
             if (Input.GetButton("Jump") && Time.time > nextShot){
-                if(health == 3 ){
+                if(health > 2 ){
                     Instantiate(shotLeft, cannon.transform.position, cannon.transform.rotation);
                     Instantiate(shot, cannon.transform.position, cannon.transform.rotation);
                     Instantiate(shotRight, cannon.transform.position, cannon.transform.rotation);

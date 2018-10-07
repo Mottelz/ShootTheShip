@@ -22,10 +22,10 @@ GameObject:
   - component: {fileID: 33105812289094654}
   - component: {fileID: 23691019126432522}
   - component: {fileID: 64262275884586518}
-  - component: {fileID: 114322987389566120}
+  - component: {fileID: 114507128222891480}
   m_Layer: 0
   m_Name: Space
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,7 +128,7 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114322987389566120
+--- !u!114 &114507128222891480
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,8 +136,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1046076447528912}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 719bb677d96334ea69e6e6a155201f8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 586bd25d1ed2947f09bc454e48987829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 0.4
-  stopAfter: 3
+  startScrollSpeed: 0.016
+  stopAfter: 5
+  slowDuration: 2
